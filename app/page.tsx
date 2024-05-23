@@ -46,11 +46,22 @@ const Home: React.FC = () => {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>Hello World!</div>
+    <main className="flex min-h-screen flex-col items-center  p-24">
       <Login onSubmit={handleLogin} />
-      <button onClick={handleLogout}>Logout</button>
-
+      <div className=' max-w-[350px] mb-4 mt-8'>
+        <h1 className='text-lg mb-4'>How to get an <strong>API Token</strong> from NewsAPI:</h1>
+        <ol className='list-decimal ml-4 text-sm'>
+          <li className='mb-1'>Go to the <a target='_blank' className='underline text-blue-500' href="https://newsapi.org/register">NewsAPI registration page</a></li>
+          <li className='mb-1'>Create an Account</li>
+          <li className='mb-1'>Confirm Your Email</li>
+          <li className='mb-1'>Get Your API key:
+            <dd className='text-xs'>-Once your email is confirmed, log in to your NewsAPI account</dd>
+            <dd className='text-xs'>-Navigate to the API keys section in your account dashboard.</dd>
+            <dd className='text-xs mb-1'>-Copy your unique API key provided there</dd>
+          </li>
+          <li className='mb-1'>Use the API key</li>
+        </ol>
+      </div>
     </main>
   );
 }

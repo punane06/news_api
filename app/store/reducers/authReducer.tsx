@@ -1,21 +1,24 @@
 const initialState = {
     isAuthenticated: false,
-    token: null,
+    email: null,
+    apiKey: null,
   };
   
-  const authReducer = (state = initialState, action: { type: any; payload: any; }) => {
+  const authReducer = (state = initialState, action: { type: any; payload: { email: any; apiKey: any; }; }) => {
     switch (action.type) {
       case 'LOGIN':
         return {
           ...state,
           isAuthenticated: true,
-          token: action.payload,
+          email: action.payload.email,
+          apiKey: action.payload.apiKey,
         };
       case 'LOGOUT':
         return {
           ...state,
           isAuthenticated: false,
-          token: null,
+          email: null,
+          apiKey: null,
         };
       default:
         return state;
@@ -23,3 +26,4 @@ const initialState = {
   };
   
   export default authReducer;
+  

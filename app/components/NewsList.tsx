@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import NewsItem from './NewsItem'
-import { useSelector } from 'react-redux'
 import Loading from '../Loading'
 import Error from '../Error'
 
@@ -22,6 +21,7 @@ const NewsList = () => {
             catch (err: any) {
                 setError(err.message)
                 setLoading(false);
+                
             }
         }
         getArticles()
@@ -31,16 +31,17 @@ const NewsList = () => {
     if (error) return <Error message={error} />
 
     return (
-        <div>
+        <div className='p-2 m-4 flex  flex-wrap  justify-center'>
             {articles.map((article, index) => {
                 return(
+
                     <NewsItem 
                         index={index}
                         title={article.title}
                         description={article.description}
                         url={article.url}
                         urlToImage={article.urlToImage} 
-                    />
+                        />
                 )
             })}
         </div>

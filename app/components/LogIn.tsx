@@ -16,20 +16,34 @@ const Login: React.FC<LoginProps> = ({ onSubmit }) => {
 
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='bg-gray-700 flex flex-col space-around rounded p-6' onSubmit={handleSubmit}>
+      <label
+        htmlFor='email'
+      >
+        E-mail
+      </label>
       <input
         type="email"
+        name='email'
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Email"
+        className='rounded p-2 mb-2 text-black'
       />
+      <label
+        htmlFor='apikey'
+      >
+        API key
+      </label>
       <input
         type="text"
+        name='apikey'
         value={apiKey}
         onChange={(e) => setApiKey(e.target.value)}
         placeholder="API Key"
+        className='rounded p-2 mb-2 text-black'
       />
-      <button type="submit">Login</button>
+      <button className='bg-blue-400 hover:bg-blue-300 rounded text-lg p-2 mt-4' type="submit">Login</button>
     </form>
   );
 };
